@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Button } from '@nextui-org/react';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className={inter.className}>
-        <p>RootLayout</p>
-        {children}
-        <Button color="primary">测试按钮</Button>
+        <Providers>
+          <p>RootLayout</p>
+          {children}
+          <Button color="primary" tabIndex={-1}>测试按钮</Button>
+        </Providers>
       </body>
     </html>
   );
