@@ -1,7 +1,6 @@
+import { setup } from '@/schema';
 
-export default function Home() {
-  return (
-    <h1>index</h1>
-    
-  );
+export default async function Home() {
+  let userData = await setup();
+  return <h1>{JSON.stringify(userData)}</h1>;
 }
