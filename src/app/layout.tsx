@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Button } from '@nextui-org/react';
 import { Providers } from './providers';
-
+import BaseNavbar from '@/ui/Application/Navbars/BasicNavbar';
+import { SessionProvider } from 'next-auth/react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -16,13 +16,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const navbatTitle = 'Next';
   return (
     <html lang="zh-CN">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <Providers>
-          <p>RootLayout</p>
-          {children}
-          <Button color="primary" tabIndex={-1}>测试按钮</Button>
+          <main className="min-h-screen min-w-screen">
+            <BaseNavbar title={navbatTitle} />
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

@@ -13,15 +13,22 @@
     "hooks": {}
   },
   "dependencies": {
+    "@auth/core": "^0.26.2",
+    "@auth/drizzle-adapter": "^0.6.2",
+    "@iconify/react": "^4.1.1",
     "@nextui-org/react": "^2.2.9",
+    "adapters": "link:@auth/core/adapters",
+    "clsx": "^2.1.0",
     "dotenv": "^16.4.1",
     "drizzle-orm": "^0.29.3",
     "framer-motion": "^11.0.3",
     "next": "14.1.0",
+    "next-auth": "5.0.0-beta.8",
     "pg": "^8.11.3",
     "postgres": "^3.4.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "^20",
