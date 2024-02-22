@@ -39,17 +39,16 @@ const menuItems = [
 ];
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
   return (
     <>
       <Switch
         size="lg"
         color="secondary"
-        defaultChecked={theme == 'dark'}
-        isSelected={theme == 'dark'}
+        defaultChecked={theme ? theme == 'dark' : true}
+        isSelected={theme ? theme == 'dark' : true}
         thumbIcon={({ isSelected, className }) => {
-          console.log({ isSelected, className });
-          if (isSelected) return <Icon icon="carbon:moon" className={className} />;
+          if (isSelected)
+            return <Icon icon="carbon:moon" className={className} />;
           else return <Icon icon="carbon:sunny" className={className} />;
         }}
         onValueChange={(value) => {
