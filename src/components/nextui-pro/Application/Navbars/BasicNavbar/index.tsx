@@ -45,15 +45,13 @@ export function ThemeSwitcher() {
       <Switch
         size="lg"
         color="secondary"
-        defaultChecked={theme === 'dark'}
-        isSelected={theme === 'dark'}
-        thumbIcon={({ isSelected, className }) =>
-          isSelected ? (
-            <Icon icon="carbon:moon" className={className} />
-          ) : (
-            <Icon icon="carbon:sunny" className={className} />
-          )
-        }
+        defaultChecked={theme == 'dark'}
+        isSelected={theme == 'dark'}
+        thumbIcon={({ isSelected, className }) => {
+          console.log({ isSelected, className });
+          if (isSelected) return <Icon icon="carbon:moon" className={className} />;
+          else return <Icon icon="carbon:sunny" className={className} />;
+        }}
         onValueChange={(value) => {
           if (value) {
             setTheme('dark');
