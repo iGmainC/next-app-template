@@ -69,7 +69,7 @@ export async function sendRegisterSMS(phoneNumber: string, code: string) {
       message: response.body.message,
       requestId: response.body.RequestId,
     };
-    setValue(phoneNumber, code, 300);
+    await setValue(phoneNumber, code, 300);
     return true;
   }
 }

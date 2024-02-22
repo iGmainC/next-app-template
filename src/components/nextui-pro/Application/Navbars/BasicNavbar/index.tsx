@@ -166,7 +166,10 @@ export default function BasicNavbar(
                 <DropdownItem key="profile" className="h-14 gap-2" isDisabled>
                   <p className="font-semibold">登录自：</p>
                   <p className="font-semibold">
-                    {session.data.user.email || session.data.user.phoneNumber}
+                    {session.data.user.email ||
+                      ('phoneNumber' in session.data.user
+                        ? (session.data.user.phoneNumber as string)
+                        : '')}
                   </p>
                 </DropdownItem>
                 <DropdownItem key="settings">My Settings</DropdownItem>

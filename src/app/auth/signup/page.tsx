@@ -214,7 +214,7 @@ export default function Page() {
       </div>
       <Button
         onClick={async () => {
-          sendRegisterSMS('18568636464', '1234');
+          await sendRegisterSMS('18568636464', '1234');
         }}
       >
         发送验证码

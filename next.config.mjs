@@ -8,6 +8,7 @@ const withPWA = nextPWA({
   register: true,
   workboxOptions: {
     skipWaiting: true,
+    maximumFileSizeToCacheInBytes: 5000000, // 5MB
   },
 });
 /** @type {import('next').NextConfig} */

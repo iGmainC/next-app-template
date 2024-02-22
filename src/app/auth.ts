@@ -196,13 +196,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
 // 手机加密码登录
 async function passwordLogin(phoneNumber: string, password: string) {
-  let user = prisma.user.findFirst({
+  let user = await prisma.user.findFirst({
     where: {
       phoneNumber: phoneNumber,
     },
   });
   if (user) {
-    let isMatch = await verifyPassword(password, user.password);
+    let isMatch = await verifyPassword(password, user.password || '');
     if (isMatch) {
       return user;
     } else {
@@ -218,7 +218,7 @@ async function customLogin(
 ) {
   switch (type) {
     case 'password':
-      return passwordLogin(params.username, params.password);
+      return await passwordLogin(params.username, params.password);
       break;
     default:
       return null;

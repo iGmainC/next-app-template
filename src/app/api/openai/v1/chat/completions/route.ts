@@ -20,7 +20,10 @@ export async function POST(request: Request) {
     setTimeout(async () => {
       const writer = responseStream.writable.getWriter();
       try {
-        const openaiRes = await openai.chat.completions.create(requestData);
+        const openaiRes = await openai.chat.completions.create({
+          ...requestData,
+          stream: true,
+        });
         for await (const chunk of openaiRes) {
           writer.write(`data: ${JSON.stringify(chunk)}\n\n`);
         }
