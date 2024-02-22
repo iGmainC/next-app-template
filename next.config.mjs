@@ -17,6 +17,6 @@ const nextConfig = {
   compress: isProd, // 开启 gzip 压缩
 };
 
-export default withPWA(nextConfig);
-// export default isProd ? withBundleAnalyzer(withPWA(nextConfig)) : nextConfig;
+// export default withPWA(nextConfig);
+export default isProd ? withBundleAnalyzer(withPWA(nextConfig)) : nextConfig;
 // export default nextConfig;
